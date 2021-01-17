@@ -1,27 +1,25 @@
 import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import cx from "classnames";
-import { client } from "utils/qoreContext";
 import { useRouter } from "next/router";
-import { route } from "next/dist/next-server/server/router";
 
-const RegisterSchema = Yup.object().shape({
-  role: Yup.string().required("Please choose a role"),
-  name: Yup.string()
-    .min(3, "Please input a longer name")
-    .required("Input your name here"),
-  email: Yup.string()
-    .email("Please put a valid email")
-    .required("Your email is required"),
-  password: Yup.string()
-    .min(6, "Choose password a least 6 characters length")
-    .required("Password is required"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm your password"),
-});
+// const RegisterSchema = Yup.object().shape({
+//   role: Yup.string().required("Please choose a role"),
+//   name: Yup.string()
+//     .min(3, "Please input a longer name")
+//     .required("Input your name here"),
+//   email: Yup.string()
+//     .email("Please put a valid email")
+//     .required("Your email is required"),
+//   password: Yup.string()
+//     .min(6, "Choose password a least 6 characters length")
+//     .required("Password is required"),
+//   confirmPassword: Yup.string()
+//     // .oneOf([Yup.ref("password"), null], "Passwords must match")
+//     .required("Confirm your password"),
+// });
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -33,7 +31,7 @@ const RegisterPage = () => {
       password: "",
       confirmPassword: "",
     },
-    validationSchema: RegisterSchema,
+    // validationSchema: RegisterSchema,
     onSubmit: (values, { setSubmitting }) => {
       (async () => {
         const res = await fetch("/api/register", {
