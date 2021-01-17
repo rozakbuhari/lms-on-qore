@@ -1,6 +1,16 @@
 import Sidebar from "components/Sidebar";
+import { Router } from "next/router";
+import { useEffect, useRef } from "react";
 
 const DashboardLayout: React.FC = ({ children }) => {
+  const mainRef = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", () => {
+      mainRef.current?.scrollTo(0, 0);
+    });
+  }, []);
+
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
       <Sidebar />
@@ -26,6 +36,7 @@ const DashboardLayout: React.FC = ({ children }) => {
           </button>
         </div>
         <main
+          ref={mainRef}
           className="flex-1 relative z-0 overflow-y-auto focus:outline-none"
           tabIndex={0}
         >

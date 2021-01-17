@@ -1,30 +1,53 @@
 import DashboardLayout from "layouts/Dashboard";
 import { useRouter } from "next/router";
-import qoreContext from "utils/qoreContext";
+import qoreContext, { client } from "utils/qoreContext";
 import Editor, { theme } from "rich-markdown-editor";
 import { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import { withAuth } from "utils/withAuth";
 
 const CourseDetailPage = () => {
   const { query, push, pathname, asPath } = useRouter();
   const [isEditing, setIsEditing] = useState<boolean>(query.edit !== undefined);
 
-  const { data: course, status } = qoreContext.views.allCourses.useGetRow(
-    query.id as string
-  );
+  useEffect(() => {
+    scrollTo({ top: 0 });
+  }, []);
 
-  const [descriptionValue, setDescriptionValue] = useState<string>(
-    course?.description
-  );
+  const {
+    data: course,
+    status,
+    revalidate,
+  } = qoreContext.views.allCourses.useGetRow(query.id as string);
+  const { updateRow } = qoreContext.views.allCourses.useUpdateRow();
+
+  useEffect(() => {
+    client.authenticate("budi@feedloop.io", "student");
+  }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      name: course?.name || "",
+      description: course?.description || "",
+    },
+    onSubmit: async (values) => {
+      await updateRow(course.id, values);
+      revalidate();
+    },
+  });
 
   useEffect(() => {
     if (course) {
-      setDescriptionValue(course.description);
+      formik.setValues({
+        name: course.name || "",
+        description: course.description || "",
+      });
     }
   }, [course]);
 
   const handleEditorChange = (getValue: any) => {
     const value = getValue();
-    setDescriptionValue(value);
+    formik.setFieldValue("description", value);
   };
 
   const handleEdit = () => {
@@ -33,6 +56,8 @@ const CourseDetailPage = () => {
   };
 
   const handleSave = () => {
+    formik.submitForm();
+
     setIsEditing(false);
     push({ pathname, query: { id: query.id } });
   };
@@ -45,9 +70,20 @@ const CourseDetailPage = () => {
             <div>
               <div className="md:flex md:items-center md:justify-between md:space-x-4 xl:border-b xl:pb-6">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">
-                    {course?.name}
-                  </h1>
+                  {isEditing ? (
+                    <textarea
+                      name="name"
+                      rows={1}
+                      onChange={formik.handleChange}
+                      value={formik.values.name}
+                      className="text-2xl font-bold text-gray-900 border-b-2 border-0 bg-gray-50 rounded-sm"
+                    />
+                  ) : (
+                    <h1 className="text-2xl font-bold text-gray-900">
+                      {course?.name}
+                    </h1>
+                  )}
+
                   <p className="mt-2 text-sm text-gray-500">
                     #400 opened by{" "}
                     <a href="#" className="font-medium text-gray-900">
@@ -215,10 +251,22 @@ const CourseDetailPage = () => {
               <div className="py-3 xl:pt-6 xl:pb-0">
                 <h2 className="sr-only">Description</h2>
                 <div className="prose max-w-none">
-                  {status === "success" && (
+                  {!course ? (
+                    <div className="w-full mx-auto">
+                      <div className="animate-pulse flex space-x-4">
+                        <div className="flex-1 space-y-4 py-1">
+                          <div className="h-4 bg-gray-400 rounded w-3/4"></div>
+                          <div className="space-y-2">
+                            <div className="h-4 bg-gray-400 rounded"></div>
+                            <div className="h-4 bg-gray-400 rounded w-5/6"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
                     <Editor
                       onChange={handleEditorChange}
-                      defaultValue={descriptionValue}
+                      defaultValue={course.description || ""}
                       theme={{ ...theme, background: "transparent" }}
                       readOnly={!isEditing}
                       autoFocus={true}
@@ -263,6 +311,11 @@ const CourseDetailPage = () => {
                       </div>
                     </li>
                   ))}
+                  <li className="flex rounded-md">
+                    <div className="flex-1 flex items-center justify-center rounded-md border-2 border-dashed border-gray-300 text-gray-300 hover:border-gray-400 hover:text-gray-400 cursor-pointer">
+                      Add content
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -717,5 +770,11 @@ const CourseDetailPage = () => {
 };
 
 CourseDetailPage.Layout = DashboardLayout;
+
+export const getServerSideProps = withAuth(async () => {
+  return {
+    props: {},
+  };
+});
 
 export default CourseDetailPage;

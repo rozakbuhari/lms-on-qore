@@ -1,5 +1,5 @@
-import qoreContext from "utils/qoreContext";
 import DashboardLayout from "layouts/Dashboard";
+import { withAuth } from "utils/withAuth";
 
 function HomePage() {
   return (
@@ -33,5 +33,11 @@ function HomePage() {
 }
 
 HomePage.Layout = DashboardLayout;
+
+export const getServerSideProps = withAuth(async () => {
+  return {
+    props: {},
+  };
+});
 
 export default HomePage;
