@@ -166,7 +166,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <div>
                 <img
-                  className="inline-block h-9 w-9 rounded-full"
+                  className="inline-block h-9 w-9 rounded-full bg-white"
                   src={user?.picture}
                   alt=""
                 />
