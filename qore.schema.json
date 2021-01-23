@@ -366,6 +366,56 @@
   ],
   "roles": [
     {
+      "name": "student",
+      "isAdmin": false,
+      "isEditor": false,
+      "isPublic": false,
+      "permissions": [
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allCourses"
+        },
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allFiles"
+        },
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allAssessments"
+        },
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allAssignments"
+        },
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allStudents"
+        },
+        {
+          "insert": false,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allTeachers"
+        }
+      ]
+    },
+    {
       "name": "public",
       "isAdmin": false,
       "isEditor": false,
@@ -441,42 +491,6 @@
           "update": true,
           "delete": true,
           "viewId": "allAssignments"
-        }
-      ]
-    },
-    {
-      "name": "student",
-      "isAdmin": false,
-      "isEditor": false,
-      "isPublic": false,
-      "permissions": [
-        {
-          "insert": false,
-          "select": true,
-          "update": false,
-          "delete": false,
-          "viewId": "allCourses"
-        },
-        {
-          "insert": false,
-          "select": true,
-          "update": false,
-          "delete": false,
-          "viewId": "allFiles"
-        },
-        {
-          "insert": false,
-          "select": true,
-          "update": false,
-          "delete": false,
-          "viewId": "allAssignments"
-        },
-        {
-          "insert": false,
-          "select": true,
-          "update": false,
-          "delete": false,
-          "viewId": "allAssessments"
         }
       ]
     },

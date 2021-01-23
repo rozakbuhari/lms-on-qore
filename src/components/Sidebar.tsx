@@ -45,32 +45,34 @@ const Sidebar = () => {
                   Dashboard
                 </a>
               </Link>
-              <Link href="/courses">
-                <a
-                  href="#"
-                  className={cx(
-                    "text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md",
-                    { "bg-indigo-800": asPath.includes("/courses") }
-                  )}
-                >
-                  <svg
-                    className="mr-3 h-6 w-6 text-indigo-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
+              {user?.role?.displayField === "teacher" ? (
+                <Link href="/courses">
+                  <a
+                    href="#"
+                    className={cx(
+                      "text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md",
+                      { "bg-indigo-800": asPath.includes("/courses") }
+                    )}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                    />
-                  </svg>
-                  Courses
-                </a>
-              </Link>
+                    <svg
+                      className="mr-3 h-6 w-6 text-indigo-300"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                      />
+                    </svg>
+                    Courses
+                  </a>
+                </Link>
+              ) : null}
               <a
                 href="#"
                 className="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -161,23 +163,23 @@ const Sidebar = () => {
             </nav>
           </div>
           <div className="flex-shrink-0 flex border-t border-indigo-800 p-4">
-              <div className="flex items-center">
-                <div>
-                  <img
-                    className="inline-block h-9 w-9 rounded-full"
-                    src={user?.picture}
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-white">{user?.name}</p>
-                  <Link href="/settings">
-                    <a className="text-xs font-medium text-indigo-200 group-hover:text-white">
-                      View settings
-                    </a>
-                  </Link>
-                </div>
+            <div className="flex items-center">
+              <div>
+                <img
+                  className="inline-block h-9 w-9 rounded-full"
+                  src={user?.picture}
+                  alt=""
+                />
               </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-white">{user?.name}</p>
+                <Link href="/settings">
+                  <a className="text-xs font-medium text-indigo-200 group-hover:text-white">
+                    View settings
+                  </a>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
