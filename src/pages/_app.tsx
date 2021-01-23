@@ -1,11 +1,12 @@
 import useAuth from "src/hooks/useAuth";
+import "antd/dist/antd.css";
 import "tailwindcss/tailwind.css";
 
 const BlankLayout = ({ children }) => children;
 
 function MyApp({ Component, pageProps }) {
   useAuth();
-  
+
   const { Layout = BlankLayout } = Component;
 
   return (

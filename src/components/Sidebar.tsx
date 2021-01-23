@@ -172,9 +172,11 @@ const Sidebar = () => {
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-white">{user?.name}</p>
-                  <p className="text-xs font-medium text-indigo-200 group-hover:text-white">
-                    View profile
-                  </p>
+                  <Link href="/settings">
+                    <a className="text-xs font-medium text-indigo-200 group-hover:text-white">
+                      View settings
+                    </a>
+                  </Link>
                 </div>
               </div>
             </a>
