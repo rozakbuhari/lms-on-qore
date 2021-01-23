@@ -236,12 +236,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@feedloop/qore-client@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@feedloop/qore-client/-/qore-client-0.1.14.tgz#21b1a9ea98e1c6c4c1135a91ea7c6d30d966fb39"
-  integrity sha512-oZoELovPeo8jUkFXkz3c0lUeS1Dnx8xwbSueopRVSUNdl8rPg+xx6yICwjQKtmf3/BDElNgYmCPVlRGZw0bB4A==
+"@feedloop/qore-client@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@feedloop/qore-client/-/qore-client-0.1.19.tgz#a69a235957d09760eed14b43b651231131441037"
+  integrity sha512-5ZdS9pOVvys5XvRyOUjeJn+TqP4kHhf1EINwNnEv+R1cJXEFvvgx+rcl04isLE1RM2xXLP6SuJGZZ3Y/DDm98A==
   dependencies:
-    "@feedloop/qore-sdk" "^0.1.5"
+    "@feedloop/qore-sdk" "^0.1.6"
     "@types/nock" "^11.1.0"
     axios "^0.21.0"
     immer "^8.0.0"
@@ -253,17 +253,18 @@
     type-fest "^0.20.1"
     wonka "^4.0.15"
 
-"@feedloop/qore-react@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@feedloop/qore-react/-/qore-react-0.1.14.tgz#8c0914da95b022008e71a39ceaebfd621a13a696"
-  integrity sha512-Wh3Rn2DWF9K6hLoSLtafGixApyEYl5yk1bLtpxpflZsRjFqlsK0ytWHeiyWbAAT2omVAwNJgZSh9IN12VpzquQ==
+"@feedloop/qore-react@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@feedloop/qore-react/-/qore-react-0.1.19.tgz#1e25547ed56cc7bc307a232a188f88d337748463"
+  integrity sha512-EryWpj1ddKItt+A1O27Uls64jYNkQTR6i59M1svZ2B8bL1sVAUHfknNj5e168FTEecqki+NNqoM/bZnfl5esRA==
   dependencies:
+    type-fest "^0.20.2"
     typescript "^4.1.2"
 
-"@feedloop/qore-sdk@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@feedloop/qore-sdk/-/qore-sdk-0.1.5.tgz#f375e68be20fbcaf32a5a9f4165a6ae1526e15ea"
-  integrity sha512-DPAzVhqoUA5c1XaXtB+ihcjF8mV4KrglBmiJpYuMTJrD8xxlkPV//fH1czrqziU+UU2j1MBZiJrb02B7N9vZNQ==
+"@feedloop/qore-sdk@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@feedloop/qore-sdk/-/qore-sdk-0.1.6.tgz#c276299421faa0364ae6cff29d8dbba4c66d3c66"
+  integrity sha512-aBTcs6OrmFWXIW3Y35mFwk4F/9JE+5XJXk/URRC4UeAyvZzA4Po6TwRcP5Lgo0uqFhDrdC9KcUU6YgjLp8WnKA==
   dependencies:
     axios "^0.21.0"
 
@@ -1623,7 +1624,7 @@ data-uri-to-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-3.0.1.tgz#594b8973938c5bc2c33046535785341abc4f3636"
   integrity sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
 
-date-fns@^2.15.0, date-fns@^2.16.1:
+date-fns@^2.15.0:
   version "2.16.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
   integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
@@ -1717,6 +1718,11 @@ depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
+
+dequal@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.2.tgz#85ca22025e3a87e65ef75a7a437b35284a7e319d"
+  integrity sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==
 
 des.js@^1.0.0:
   version "1.0.1"
@@ -3108,7 +3114,7 @@ modern-normalize@^1.0.0:
   resolved "https://registry.yarnpkg.com/modern-normalize/-/modern-normalize-1.0.0.tgz#539d84a1e141338b01b346f3e27396d0ed17601e"
   integrity sha512-1lM+BMLGuDfsdwf3rsgBSrxJwAZHFIrQ8YR61xIqdHo0uNKI9M52wNpHSrliZATJp51On6JD0AfRxd4YGSU0lw==
 
-moment@^2.24.0, moment@^2.25.3:
+moment@^2.24.0, moment@^2.25.3, moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
@@ -5146,6 +5152,13 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+swr@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.4.0.tgz#e76da9f981fe6dee0e133289e9b582fc80d9c41d"
+  integrity sha512-70qd1FHYHwIdYXW0jTpm5ktitzvPBCtyKz8ZzynWlY/rMqe4drYPgcl/H9Ipuh+Xv6ZW5viNx13ro8EKIWZcoQ==
+  dependencies:
+    dequal "2.0.2"
+
 tailwindcss@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.0.2.tgz#28e1573d29dd4547b26782facb05bcfaa92be366"
@@ -5347,7 +5360,7 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-type-fest@^0.20.1:
+type-fest@^0.20.1, type-fest@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==

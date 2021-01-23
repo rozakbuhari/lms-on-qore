@@ -366,6 +366,49 @@
   ],
   "roles": [
     {
+      "name": "public",
+      "isAdmin": false,
+      "isEditor": false,
+      "isPublic": true,
+      "permissions": [
+        {
+          "insert": true,
+          "select": false,
+          "update": false,
+          "delete": false,
+          "viewId": "allMember"
+        },
+        {
+          "insert": true,
+          "select": true,
+          "update": true,
+          "delete": true,
+          "viewId": "allCourses"
+        },
+        {
+          "insert": true,
+          "select": true,
+          "update": false,
+          "delete": false,
+          "viewId": "allFiles"
+        },
+        {
+          "insert": true,
+          "select": true,
+          "update": true,
+          "delete": true,
+          "viewId": "allTeachers"
+        },
+        {
+          "insert": true,
+          "select": true,
+          "update": true,
+          "delete": true,
+          "viewId": "allStudents"
+        }
+      ]
+    },
+    {
       "name": "teacher",
       "isAdmin": false,
       "isEditor": false,
@@ -434,49 +477,6 @@
           "update": false,
           "delete": false,
           "viewId": "allAssessments"
-        }
-      ]
-    },
-    {
-      "name": "public",
-      "isAdmin": false,
-      "isEditor": false,
-      "isPublic": true,
-      "permissions": [
-        {
-          "insert": true,
-          "select": true,
-          "update": true,
-          "delete": true,
-          "viewId": "allCourses"
-        },
-        {
-          "insert": true,
-          "select": true,
-          "update": true,
-          "delete": true,
-          "viewId": "allFiles"
-        },
-        {
-          "insert": true,
-          "select": true,
-          "update": true,
-          "delete": true,
-          "viewId": "allTeachers"
-        },
-        {
-          "insert": true,
-          "select": true,
-          "update": true,
-          "delete": true,
-          "viewId": "allStudents"
-        },
-        {
-          "insert": true,
-          "select": false,
-          "update": false,
-          "delete": false,
-          "viewId": "allMember"
         }
       ]
     },

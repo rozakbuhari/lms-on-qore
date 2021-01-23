@@ -5,7 +5,7 @@ import useUser from "src/hooks/useUser";
 
 const Sidebar = () => {
   const { asPath } = useRouter();
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <div className="hidden bg-indigo-700 md:flex md:flex-shrink-0">
@@ -161,7 +161,6 @@ const Sidebar = () => {
             </nav>
           </div>
           <div className="flex-shrink-0 flex border-t border-indigo-800 p-4">
-            <a href="#" className="flex-shrink-0 w-full group block">
               <div className="flex items-center">
                 <div>
                   <img
@@ -179,7 +178,6 @@ const Sidebar = () => {
                   </Link>
                 </div>
               </div>
-            </a>
           </div>
         </div>
       </div>
