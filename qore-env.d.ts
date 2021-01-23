@@ -4,18 +4,6 @@
 import { QoreSchema } from "@feedloop/qore-client";
 
 declare module "@feedloop/qore-client" {
-  type MemberTableRow = {
-    id: string;
-    email: string;
-    role: { id: string; displayField: string };
-    teachers: { nodes: TeachersTableRow[] };
-    students: { nodes: StudentsTableRow[] };
-    name: string;
-    birthdate: Date;
-    address: string;
-    password: string;
-  };
-
   type CoursesTableRow = {
     id: string;
     name: string;
@@ -64,6 +52,19 @@ declare module "@feedloop/qore-client" {
     score: number;
   };
 
+  type MemberTableRow = {
+    id: string;
+    role: { id: string; displayField: string };
+    email: string;
+    teachers: { nodes: TeachersTableRow[] };
+    students: { nodes: StudentsTableRow[] };
+    name: string;
+    birthdate: Date;
+    address: string;
+    password: string;
+    picture: string;
+  };
+
   type AllMemberViewRow = {
     read: {
       id: string;
@@ -73,6 +74,7 @@ declare module "@feedloop/qore-client" {
       birthdate: Date;
       address: string;
       password: string;
+      picture: string;
     };
     write: {
       email: string;
@@ -80,6 +82,7 @@ declare module "@feedloop/qore-client" {
       birthdate: Date;
       address: string;
       password: string;
+      picture: string;
     };
     params: {};
     actions: {};
