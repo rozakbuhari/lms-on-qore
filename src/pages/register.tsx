@@ -53,10 +53,10 @@ const RegisterPage = () => {
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
-            <img
-              className="h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
+          <img
+              className="h-14 w-auto"
+              src="/images/logo-dark.svg"
+              alt="CourseCloud"
             />
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
               Sign up for an account

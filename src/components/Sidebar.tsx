@@ -14,9 +14,9 @@ const Sidebar = () => {
           <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                alt="Workflow"
+                className="h-12 w-auto"
+                src="/images/logo-light.svg"
+                alt="CourseCloud"
               />
             </div>
             <nav className="mt-5 flex-1 px-2 space-y-1">
