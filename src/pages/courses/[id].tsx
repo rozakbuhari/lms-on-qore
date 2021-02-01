@@ -5,25 +5,46 @@ import Editor, { theme } from "rich-markdown-editor";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { withAuth } from "utils/withAuth";
+import useUser from "hooks/useUser";
 
 const CourseDetailPage = () => {
-  const { query, push, pathname, asPath } = useRouter();
+  const { query, push, pathname } = useRouter();
   const [isEditing, setIsEditing] = useState<boolean>(query.edit !== undefined);
-
-  useEffect(() => {
-    scrollTo({ top: 0 });
-  }, []);
 
   const {
     data: course,
-    status,
     revalidate,
+    status,
   } = qoreContext.views.allCourses.useGetRow(query.id as string);
   const { updateRow } = qoreContext.views.allCourses.useUpdateRow();
+  const { addRelation, statuses } = qoreContext.views.allCourses.useRelation(
+    course?.id
+  );
+
+  const { user } = useUser();
+  const { data: teacher, status: teacherStatus } = qoreContext.views.allTeachers.useGetRow(
+    user?.teachers?.nodes[0]?.id
+  );
 
   useEffect(() => {
-    client.authenticate("budi@feedloop.io", "student");
-  }, []);
+    if (status !== "success") {
+      return;
+    }
+
+    if (teacherStatus !== 'success') {
+      return;
+    }
+
+    if (
+      statuses.addRelation === "idle" &&
+      !course.teacher
+    ) {
+      (async () => {
+        await addRelation({ teacher: [teacher.id] });
+        revalidate();
+      })();
+    }
+  }, [addRelation, course, teacher]);
 
   const formik = useFormik({
     initialValues: {
