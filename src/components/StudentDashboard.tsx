@@ -1,8 +1,8 @@
 import { Empty } from "antd";
 import Link from "next/link";
 import React from "react";
-import useStudent from "src/hooks/useStudent";
-import useUser from "src/hooks/useUser";
+import useStudent from "hooks/useStudent";
+import useUser from "hooks/useUser";
 import qoreContext from "utils/qoreContext";
 
 function StudentDashboard() {

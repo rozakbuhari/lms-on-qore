@@ -2,7 +2,7 @@ import { Empty } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import useUser from "src/hooks/useUser";
+import useUser from "hooks/useUser";
 import qoreContext from "utils/qoreContext";
 
 function TeacherDashboard() {

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import cx from "classnames";
-import useUser from "src/hooks/useUser";
+import useUser from "hooks/useUser";
 
 const Sidebar = () => {
   const { asPath } = useRouter();

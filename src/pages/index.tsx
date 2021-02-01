@@ -1,7 +1,7 @@
 import StudentDashboard from "components/StudentDashboard";
 import TeacherDashboard from "components/TeacherDashboard";
 import DashboardLayout from "layouts/Dashboard";
-import useUser from "src/hooks/useUser";
+import useUser from "hooks/useUser";
 import { withAuth } from "utils/withAuth";
 
 function HomePage() {

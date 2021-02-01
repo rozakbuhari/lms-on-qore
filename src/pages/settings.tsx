@@ -1,10 +1,10 @@
 import DashboardLayout from "layouts/Dashboard";
 import _ from "lodash";
-import useUser from "src/hooks/useUser";
+import useUser from "hooks/useUser";
 import { withAuth } from "utils/withAuth";
 import { Input, message, Modal, Upload } from "antd";
 import { ExclamationCircleOutlined, PlusOutlined } from "@ant-design/icons";
-import useLogout from "src/hooks/useLogout";
+import useLogout from "hooks/useLogout";
 import React, { useState } from "react";
 import cx from "classnames";
 import moment from "moment";

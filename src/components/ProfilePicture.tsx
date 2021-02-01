@@ -1,8 +1,8 @@
 import { Upload } from "antd";
 import React from "react";
-import useUser from "src/hooks/useUser";
+import useUser from "hooks/useUser";
 import { PlusOutlined } from "@ant-design/icons";
-import useUploadURL from "src/hooks/useUploadURL";
+import useUploadURL from "hooks/useUploadURL";
 import { nanoid } from "nanoid";
 import ImgCrop from "antd-img-crop";
 
